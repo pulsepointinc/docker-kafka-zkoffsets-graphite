@@ -23,8 +23,7 @@ echo "${CMD}" >&2
 while :; do
   ${CMD} | \
   tail -n+2 | \
-  awk -v prefix="${PREFIX}" -v ts="$(date +%s)" -v cg="${CONSUMER_GROUP}" '{print prefix "." $1 "." cg "." $2 ".lag", $5, ts}'
-#  awk -v prefix="${PREFIX}" -v ts="$(date +%s)" '{print prefix "." $2 "." $1 "." $3 ".lag", $6, ts}' > \
-#  /dev/tcp/${GRAPHITE_HOST}/${GRAPHITE_PORT}
+  awk -v prefix="${PREFIX}" -v ts="$(date +%s)" -v cg="${CONSUMER_GROUP}" '{print prefix "." $1 "." cg "." $2 ".lag", $5, ts}' > \
+  /dev/tcp/${GRAPHITE_HOST}/${GRAPHITE_PORT}
   sleep ${SLEEP}
 done
