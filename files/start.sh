@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#
 #[ -z "${CONSUMER_GROUP}" ] && {
 #  echo "Must set CONSUMER_GROUP in env." >&2
 #  exit 1
